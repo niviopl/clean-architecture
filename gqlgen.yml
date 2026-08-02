@@ -1,0 +1,17 @@
+schema:
+  - internal/infra/graph/schema.graphqls
+
+exec:
+  filename: internal/infra/graph/generated/generated.go
+  package: generated
+
+model:
+  filename: internal/infra/graph/model/models_gen.go
+  package: model
+
+resolver:
+  layout: single-file
+  filename: internal/infra/graph/resolver.go
+  package: graph
+
+autobind: []

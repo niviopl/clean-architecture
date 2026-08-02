@@ -1,0 +1,46 @@
+### Create Order (REST)
+POST http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "id": "1",
+    "price": 100.0,
+    "tax": 10.0
+}
+
+### Create another Order (REST)
+POST http://localhost:8000/order
+Content-Type: application/json
+
+{
+    "id": "2",
+    "price": 200.5,
+    "tax": 15.5
+}
+
+### List Orders (REST)
+GET http://localhost:8000/order
+Accept: application/json
+
+### Create Order (GraphQL) - http://localhost:8080/query
+POST http://localhost:8080/query
+Content-Type: application/json
+
+{
+    "query": "mutation createOrder($input: OrderInput!) { createOrder(input: $input) { id Price Tax FinalPrice } }",
+    "variables": {
+        "input": {
+            "id": "3",
+            "Price": 300.0,
+            "Tax": 20.0
+        }
+    }
+}
+
+### List Orders (GraphQL) - http://localhost:8080/query
+POST http://localhost:8080/query
+Content-Type: application/json
+
+{
+    "query": "query { ListOrders { id Price Tax FinalPrice } }"
+}
